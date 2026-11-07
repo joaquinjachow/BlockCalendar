@@ -1,5 +1,4 @@
 "use client"
-import { Header } from "@/components/header"
 import { LoginForm } from "@/components/login-form"
 import { StatisticsPanel } from "@/components/statistics-panel"
 import { Spinner } from "@/components/ui/spinner"
@@ -18,10 +17,5 @@ export default function StatisticsPage() {
 
   if (!user) return <LoginForm />
 
-  return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <Header />
-      <StatisticsPanel />
-    </div>
-  )
+  return <StatisticsPanel />
 }

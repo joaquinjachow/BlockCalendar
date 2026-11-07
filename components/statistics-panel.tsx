@@ -108,7 +108,7 @@ export function StatisticsPanel() {
   ]
 
   return (
-    <main className="container mx-auto flex-1 px-4 py-6">
+    <main className="container mx-auto w-full min-w-0 flex-1 px-4 py-6">
       <Card className="mx-auto max-w-5xl border-border/50 shadow-lg shadow-primary/5">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-foreground">
