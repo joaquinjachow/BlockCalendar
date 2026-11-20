@@ -1,18 +1,23 @@
 "use client"
-import { Header } from "@/components/header"
+import { useState } from "react"
 import { Notepad } from "@/components/notepad"
 import { CalendarView } from "@/components/calendar-view"
+import { UpcomingActivities } from "@/components/upcoming-activities"
+import { WeeklySummary } from "@/components/weekly-summary"
 
 export function Dashboard() {
+  const [selectedDate, setSelectedDate] = useState<string | null>(null)
+
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      <Header />
-      <main className="flex-1 container mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[calc(100vh-7rem)]">
-          <Notepad />
-          <CalendarView />
-        </div>
-      </main>
-    </div>
+    <main className="container mx-auto w-full min-w-0 flex-1 px-4 py-6">
+      <WeeklySummary />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start lg:h-[calc(100vh-7rem)] lg:grid-rows-[minmax(0,1fr)]">
+        <Notepad selectedDate={selectedDate} onClearSelectedDate={() => setSelectedDate(null)} />
+        <CalendarView selectedDate={selectedDate} onSelectedDateChange={setSelectedDate} />
+      </div>
+      <div className="mt-6">
+        <UpcomingActivities />
+      </div>
+    </main>
   )
 }
